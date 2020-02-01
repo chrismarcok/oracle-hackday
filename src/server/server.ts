@@ -1,21 +1,28 @@
-import * as express from 'express';
-import apiRouter from './routes';
-const path = require("path");
+import * as express from "express";
+import apiRouter from "./routes";
+import * as path from "path";
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const app = express();
+type Application = express.Application;
+type Request = express.Request;
+type Response = express.Response;
 
-app.use(express.static(path.join(__dirname, '../public')));
+const app: Application = express();
+
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(apiRouter);
 
-
-
-app.get("/root", (req, res) => {
+app.get("/root", (req: Request, res: Response) => {
   res.send("Express root route");
 });
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/../public/index.html'));
+app.get("*", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server listening on port: ${port}`));
+const port: string | number = process.env.PORT || 3000;
+app.listen(port, () =>
+  console.log(`Server listening on port ${port} in mode ${app.settings.env}`)
+);
+console.log(`${process.env.TEST}`);
