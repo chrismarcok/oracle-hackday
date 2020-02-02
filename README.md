@@ -1,17 +1,19 @@
-# Barebones React/TypeScript/Express/Sass Boilerplate
-This project is a starting point for a TypeScript based React app that also has a local API server using express.
+# Getting Started
 
-There are 2 different Webpack configurations. One for the server and one for the client.
+```bash
+npm install
+touch .env
+npm run dev
+```
 
-## Server
+Server will start on port 3000. Ensure that any environment variables `process.env.X` where X is your variable are added to the .env file you created.
+
+Deployment to heroku made easy with the `npm run build` script which runs automatically transpiles all files when you push to heroku.
+
+# Server
 The server build process compiles the TypeScript files found in `/src/server` into a single bundled JavaScript file located in the `/dist` directory.
 
-## Client
+# Client
 The client build process compiles the React app located in `/src/client` into a bundled located at `/public/js/app.js`.
 
-The client configuration will also build the Sass files found at `/src/client/scss`. The App component imports the `app.scss` file which already includes an import for Bootstrap.
-
-## Running the project
-In order to run the server, use `npm run dev`, and the server will start on port 3000 (http://localhost:3000). 
-
-Webpack will watch the files. Once you save a file, you can refresh your browser to ensure you got the updated client files. If you only change server files, you *shouldn't* need to refresh.
+The client configuration will also build the Sass files found at `/src/client/scss`. The App component imports the `app.scss` file.

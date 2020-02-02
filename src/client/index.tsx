@@ -11,7 +11,7 @@ render(
     <Switch>
       <Route exact path="/" component={App} />
       <Route exact path="/home" component={page} />
-      <Route component={NoMatch}/>
+      <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

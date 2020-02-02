@@ -1,8 +1,13 @@
 import * as express from 'express';
 
-const router = express.Router();
+type Router = express.Router;
+type Request = express.Request;
+type Response = express.Response;
+type NextFunction = express.NextFunction;
 
-router.get('/api/hello', (req, res, next) => {
+const router:Router = express.Router();
+
+router.get('/api/hello', (req:Request, res:Response, next:NextFunction) => {
     res.json('World');
 });
 

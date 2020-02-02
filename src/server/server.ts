@@ -1,5 +1,6 @@
 import * as express from "express";
 import apiRouter from "./routes";
+import keys from "./config/keys";
 import * as path from "path";
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -14,7 +15,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(apiRouter);
 
 app.get("/root", (req: Request, res: Response) => {
-  res.send("Express root route asdf");
+  res.send("Express example route");
 });
 
 app.get("*", (req: Request, res: Response) => {
@@ -26,3 +27,4 @@ app.listen(port, () =>
   console.log(`Server listening on port ${port} in mode ${app.settings.env}`)
 );
 //console.log(`${process.env.TEST}`);
+//console.log(keys)
