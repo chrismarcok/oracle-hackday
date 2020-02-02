@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(apiRouter);
 
 app.get("/root", (req: Request, res: Response) => {
-  res.send("Express root route");
+  res.send("Express root route asdf");
 });
 
 app.get("*", (req: Request, res: Response) => {
@@ -25,4 +25,4 @@ const port: string | number = process.env.PORT || 3000;
 app.listen(port, () =>
   console.log(`Server listening on port ${port} in mode ${app.settings.env}`)
 );
-console.log(`${process.env.TEST}`);
+//console.log(`${process.env.TEST}`);
