@@ -5,12 +5,6 @@ import {postProps} from "../comps/Comment";
 
 import {comments} from "../data/dummydata/comments"
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 79588ec... post page
 interface PostPageProps {
 
 }
@@ -18,7 +12,6 @@ interface PostPageProps {
 export const PostPage: React.FC<PostPageProps> = ({}) => {
         return (
         <Container>
-<<<<<<< HEAD
             <Row style={{minHeight:"400px", border: "black", outlineStyle: "solid",  backgroundColor: "gray"}} >
                 Post Will Go Here
             </Row>
@@ -32,11 +25,6 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
                     )
                 })
             }
-=======
-            <Row style={{minHeight:"200px", border: "black", outlineStyle: "solid",  backgroundColor: "red"}} ></Row>
-            <Row style={{minHeight:"auto", backgroundColor: "blue", marginTop: "20px"}}>
-                <CommentComp {... comments[0]}/>
->>>>>>> 79588ec... post page
             </Row>
 
            
