@@ -3,13 +3,29 @@ import apiRouter from "./routes";
 import keys from "./config/keys";
 import * as path from "path";
 import * as dotenv from "dotenv";
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 dotenv.config();
 
 type Application = express.Application;
 type Request = express.Request;
 type Response = express.Response;
 
-const app: Application = express();
+const app:any = express();
+
+mongoose.promise = global.Promise;
+mongoose
+  .connect(keys.mongoURI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => console.log("MongoDB Connected"))
+    .catch((err:any) => console.log(`Mongo error: ${err}`));
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
 
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(apiRouter);
