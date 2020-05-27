@@ -7,6 +7,8 @@ export interface Post {
     body: string;
     comments: Comment[];
     resolved: boolean;
+    project?: string;
+    tags?: string[];
 }
 
 export interface Comment{
