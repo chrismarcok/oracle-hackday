@@ -1,5 +1,6 @@
 import React from "react";
 import {posts} from "../data/dummydata/posts"
+import {PostComp} from "../comps/dashboard/Post";
 
 interface DashboardPageProps {}
 
@@ -12,10 +13,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
               {
                 posts.map((post, index) => {
                     return (
-                    <div key={index}>
-                        {post.author}
-                        hello world
-                    </div>
+                    <PostComp 
+                        post={post} 
+                        key={index}
+                    />
                     )
                 })
               }

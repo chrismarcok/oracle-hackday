@@ -1,29 +1,98 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
+$our-font: "Comic Sans MS", sans-serif;
+$color-primary: #a51c30;
+$imported-font: "Poppins", sans-serif;
 
-$our-font: 'Comic Sans MS', sans-serif;
-$color-primary: #A51C30;
-$imported-font: 'Poppins', sans-serif;
-
-
-.my-class{
-    font-size: 100px;
-    font-family: $our-font;
-    background-color: $color-primary;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.dashboard{
-    .dashboard-outermost{
-        background-color: #eee;
-        height: 100vh;
-        width: 100vw;
+p {
+    margin-bottom: 0;
+}
+
+.my-class {
+  font-size: 100px;
+  font-family: $our-font;
+  background-color: $color-primary;
+}
+
+.inline {
+  display: inline;
+}
+
+.dashboard {
+  .dashboard-outermost {
+    background-color: #eee;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .dashboard-container {
+    margin: auto;
+    height: 100vh;
+    width: 1000px;
+    background-color: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    overflow-y: scroll;
+  }
+}
+
+.postcomp-outermost {
+  width: 100%;
+  height: 250px;
+  background-color: #efefef;
+  margin-bottom: 2rem;
+
+  .post-col {
+    float: left;
+  }
+
+  .left-col {
+    height: 100%;
+    width: 15%;
+    // background-color: green;
+    font-size: 2rem;
+    text-align: center;
+
+    .left-col-inner {
+      margin-top: 34px;
     }
+  }
+
+  .mid-col {
+    margin-top: 1rem;
+    // height: 100%;
+    position: relative;
+    width: 75%;
     
-    .dashboard-container{
-        margin: auto;
-        height: 100vh;
-        width: 1000px;
-        background-color: white;
+    .mid-col-inner{
+        margin-bottom: 0;
+        height: calc(100% - 3rem);
+        
+        overflow-y: scroll;
     }
+
+    .mid-col-body{
+        font-size: 1rem;
+    }
+  }
+
+  .right-col {
+    height: 100%;
+    width: 10%;
+    // background-color: green;
+    padding: 1rem;
+
+    .post-avatar {
+      float: right;
+      background-size: contain;
+      height: 60px;
+      width: 60px;
+    }
+  }
 }

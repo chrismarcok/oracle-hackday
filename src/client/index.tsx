@@ -5,6 +5,74 @@ import { NoMatch } from "./NoMatch";
 import {DashboardPage} from "./pages/DashboardPage";
 import "./scss/app";
 
+//Font awesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+import {
+  faCheckSquare,
+  faCoffee,
+  faSignInAlt,
+  faSearch,
+  faUser,
+  faInfo,
+  faInfoCircle,
+  faChevronDown,
+  faChevronUp,
+  faChevronLeft,
+  faChevronRight,
+  faTrash,
+  faUndo,
+  faSave,
+  faExpandArrowsAlt,
+  faFont,
+  faPencilAlt,
+  faCheck,
+  faArrowRight,
+  faArrowLeft,
+  faKeyboard,
+  faEraser,
+  faGripVertical,
+  faQuestionCircle,
+  faQuestion,
+  faEnvelope,
+  faCaretUp,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
+
+const myLibrary: any = library;
+myLibrary.add(
+  fab,
+  faCheckSquare,
+  faCoffee,
+  faSignInAlt,
+  faSearch,
+  faUser,
+  faInfo,
+  faInfoCircle,
+  faChevronDown,
+  faChevronUp,
+  faChevronLeft,
+  faChevronRight,
+  faTrash,
+  faUndo,
+  faSave,
+  faExpandArrowsAlt,
+  faFont,
+  faPencilAlt,
+  faCheck,
+  faArrowRight,
+  faArrowLeft,
+  faKeyboard,
+  faEraser,
+  faGripVertical,
+  faQuestionCircle,
+  faQuestion,
+  faEnvelope,
+  faCaretUp,
+  faCaretDown,
+);
+
 render(
   <BrowserRouter>
     <Switch>
