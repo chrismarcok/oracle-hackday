@@ -12,3 +12,18 @@ $imported-font: 'Poppins', sans-serif;
     font-family: $our-font;
     background-color: $color-primary;
 }
+
+.dashboard{
+    .dashboard-outermost{
+        background-color: #eee;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .dashboard-container{
+        margin: auto;
+        height: 100vh;
+        width: 1000px;
+        background-color: white;
+    }
+}

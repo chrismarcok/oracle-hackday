@@ -1,16 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { page } from "./page";
 import { NoMatch } from "./NoMatch";
-import App from "./App";
+import {DashboardPage} from "./pages/DashboardPage";
 import "./scss/app";
 
 render(
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path="/home" component={page} />
+      <Route exact path="/" component={DashboardPage} />
       <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>,
