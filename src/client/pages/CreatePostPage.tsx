@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { Comp } from '../comps/Comp'
 import { CreatePostInput } from '../comps/CreatePostInput'
 
 interface CreatePostPageProps {
@@ -47,10 +45,11 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                         </div>
                         <div className="step_block">
                             Step 1: Daily bug pops up <br></br>
-                            Describe how despair you are. <br></br><br></br>
-                            Step 2: Restart the computer<br></br>
+                            Describe how much despair you are in. <br></br><br></br>
+                            Step 2: Restart your computer<br></br>
                             Show how hard you tried to solve it.<br></br><br></br>
                             Step 3: Take a picture <br></br>
+                            Say Cheese!
                         </div>
                     </div>
                 </div>

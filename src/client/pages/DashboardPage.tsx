@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {posts} from "../data/dummydata/posts"
 import {PostComp} from "../comps/dashboard/Post";
-import { Footer } from "../comps/ojet/Footer";
 
 interface DashboardPageProps {}
 

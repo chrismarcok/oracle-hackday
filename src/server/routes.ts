@@ -68,6 +68,21 @@ router.get('/api/post/:postId', (req:Request, res:Response, next:NextFunction) =
         })
 });
 
+router.post('/api/post/:postId', (req:Request, res:Response, next:NextFunction) => {
+    const id = req.params.postId
+    console.log("body");
+    console.log(req.body)
+    Post.findOneAndUpdate({'_id': mongoose.Types.ObjectId(id)},
+    {$push: {comments: req.body}})
+        .then((posts:any) => {
+            res.sendStatus(200);
+        })
+        .catch((err:any) => {
+            console.log(err);
+            res.status(500).send(err);
+        })
+});
+
 router.post('/api/post', (req:Request, res:Response, next:NextFunction) => {
     const newPost = new Post({
         title:req.body.title,
