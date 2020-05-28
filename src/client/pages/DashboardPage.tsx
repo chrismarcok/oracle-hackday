@@ -47,7 +47,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
               <Input type="text" name="search" id="search" placeholder="search some stuff" onChange={searchOnChange}/>
             </div>
 
-            <TopHelpers></TopHelpers>
+            <TopHelpers/>
 
               {
                 fetched.filter( post => {
