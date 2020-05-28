@@ -11,14 +11,16 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
   const title = "e.g. Dogs or Cats?";
   const body = "Something.";
   const tags = "e.g. AMS";
+  const repoId = "e.g. 19671:master";
 
   const [titleVal, setTitleVal] = useState("");
   const [bodyVal, setBodyVal] = useState("");
   const [tagVal, setTagVal] = useState("");
+  const [repoVal, setRepoVal] = useState("");
 
   return (
     <div>
-      <div className="cpost">
+      <div className="cpost" style={{height: "900px"}}>
         <div className="container">
           <div className="content">
             <div className="title">
@@ -55,6 +57,17 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                   setValue={setTagVal}
                   value={tagVal}
                 />
+                <CreatePostInput
+                  id={"input_repo"}
+                  title={"Repository!"}
+                  text={
+                    "If you have a relevant repository ID and branch for others to look at, enter it here."
+                  }
+                  place_holder={repoId}
+                  len={32}
+                  setValue={setRepoVal}
+                  value={repoVal}
+                />
                 <button
                   className="submit_btn"
                   onClick={() => {
@@ -68,7 +81,11 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                         comments: [],
                         resolved: false,
                         body: bodyVal,
-                        tags: (tagVal === "") ? [] : tagVal.split(" ")
+                        tags: (tagVal === "") ? [] : tagVal.split(" "),
+                        repo: {
+                          repo_id: repoVal.split(":")[0],
+                          branch:repoVal.split(":")[1],
+                        }
                     };
                     // console.log(data)
                     fetch("/api/post", {
