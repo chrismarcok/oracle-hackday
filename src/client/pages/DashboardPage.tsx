@@ -3,6 +3,7 @@ import { PostComp } from "../comps/dashboard/Post";
 import { Footer } from "../comps/ojet/Footer";
 import { Input } from 'reactstrap';
 import {Post} from "../data/post"
+import { TopHelpers } from "../comps/dashboard/TopHelpers";
 
 
 interface DashboardPageProps {}
@@ -45,6 +46,8 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
             <div>
               <Input type="text" name="search" id="search" placeholder="search some stuff" onChange={searchOnChange}/>
             </div>
+
+            <TopHelpers></TopHelpers>
 
               {
                 fetched.filter( post => {
