@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { NoMatch } from "./NoMatch";
-import {DashboardPage} from "./pages/DashboardPage";
+import { DashboardPage } from "./pages/DashboardPage";
 import "./scss/app";
 
 //Font awesome
@@ -39,6 +39,8 @@ import {
   faCaretUp,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { Header } from "./comps/ojet/Header";
+import { Footer } from "./comps/ojet/Footer";
 
 const myLibrary: any = library;
 myLibrary.add(
@@ -70,15 +72,19 @@ myLibrary.add(
   faQuestion,
   faEnvelope,
   faCaretUp,
-  faCaretDown,
+  faCaretDown
 );
 
 render(
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={DashboardPage} />
-      <Route component={NoMatch} />
-    </Switch>
-  </BrowserRouter>,
+  <>
+    <Header />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={DashboardPage} />
+        <Route component={NoMatch} />
+      </Switch>
+    </BrowserRouter>
+    <Footer/>
+  </>,
   document.getElementById("root")
 );
