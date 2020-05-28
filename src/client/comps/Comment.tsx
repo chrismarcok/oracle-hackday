@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
 import { Comment } from '../data/post'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 export interface postProps {
     name: string,
@@ -13,9 +15,10 @@ export const CommentComp: React.FC<Comment> = (comment) => {
         <Container fluid={true} style={{height: "fit-content"}}    >
           <Row style={{minHeight:"250px"}}>
 
-            <Col xs={2} style={{border: "black", outlineStyle: "solid",  justifyContent:"center"}}>
-              
-
+            <Col xs={2} style={{border: "black", outlineStyle: "solid",  justifyContent:"center", display:"grid"}}>
+              <FontAwesomeIcon icon="caret-up" size="6x" />
+                <div style={{textAlign:"center", fontSize:"xx-large"}}>{comment.score}</div>
+              <FontAwesomeIcon icon="caret-down" size="6x" />
             </Col>
 
             <Col xs={10} style={{border: "gray", outlineStyle: "solid"}}>

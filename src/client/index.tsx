@@ -79,7 +79,7 @@ render(
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={DashboardPage} />
-      <Route exact path="/post" component={PostPage} />
+      <Route exact path="/post/:postID" component={PostPage} />
       <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>,
