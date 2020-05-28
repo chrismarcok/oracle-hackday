@@ -46,9 +46,13 @@ router.post('/api/user', (req:Request, res:Response, next:NextFunction) => {
 });
 
 router.get('/api/post', (req:Request, res:Response, next:NextFunction) => {
-    Post.find()
+    Post.find({})
         .then((posts:any) => {
-            res.send(posts)
+            console.log(posts);
+            const sorted = posts.sort((b,a) => {
+                return a.score > b.score ? 1 : -1
+            })
+            res.send(sorted)
         })
         .catch((err:any) => {
             console.log(err);
@@ -65,6 +69,21 @@ router.get('/api/post/:postId', (req:Request, res:Response, next:NextFunction) =
         .catch((err:any) => {
             console.log(err);
             res.sendStatus(500);
+        })
+});
+
+router.post('/api/post/:postId', (req:Request, res:Response, next:NextFunction) => {
+    const id = req.params.postId
+    console.log("body");
+    console.log(req.body)
+    Post.findOneAndUpdate({'_id': mongoose.Types.ObjectId(id)},
+    {$push: {comments: req.body}})
+        .then((posts:any) => {
+            res.sendStatus(200);
+        })
+        .catch((err:any) => {
+            console.log(err);
+            res.status(500).send(err);
         })
 });
 

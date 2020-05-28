@@ -13,9 +13,8 @@ export interface Post {
 }
 
 export interface Comment{
-    _id: string;
+    _id?: string;
     author: User;
-    authorAvatar: string;
     score: number;
     body: string;
     date: number;
@@ -23,7 +22,7 @@ export interface Comment{
 }
 
 export interface User{
-    _id: string;
+    _id?: string;
     name: string;
     avatar: string;
 }

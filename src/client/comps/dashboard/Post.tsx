@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Post } from "../../data/post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {formatDate} from "../../utils/utils"
@@ -16,6 +16,14 @@ export const PostComp: React.FC<PostCompProps> = ({ post, large }) => {
   const [score, setScore] = useState(post.score);
   const [upColor, setUpColor] = useState("black");
   const [downColor, setDownColor] = useState("black");
+
+  const [midColIconCol, setMidColIconCol] = useState("#6cb9d2");
+
+  useEffect(() => {
+    if (post.resolved){
+      setMidColIconCol("lightgreen")
+    }
+  }, [])
 
   return (
     
@@ -37,7 +45,7 @@ export const PostComp: React.FC<PostCompProps> = ({ post, large }) => {
       </div>
       <div className="mid-col post-col">
         <div className="mid-col-inner">
-          <FontAwesomeIcon icon={midColIcon} size="2x" />
+          <FontAwesomeIcon icon={midColIcon} size="2x" color={midColIconCol}/>
           <h1 className="inline" style={{ paddingLeft: "20px" }}>
             <a href={`/post/${post._id}`}>{post.title}</a>
           </h1>

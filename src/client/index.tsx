@@ -89,7 +89,6 @@ render(
         <Route component={NoMatch} />
       </Switch>
     </BrowserRouter>
-    <Footer/>
   </>,
   document.getElementById("root")
 );
