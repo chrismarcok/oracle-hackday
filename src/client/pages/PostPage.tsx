@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { CommentComp } from "../comps/Comment";
 import { comments } from "../data/dummydata/comments";
 import { useParams } from "react-router-dom";
-import { Post } from "../data/post";
+import { Post, Comment } from "../data/post";
 import { PostComp } from "../comps/dashboard/Post";
 import { Footer } from "../comps/ojet/Footer";
 
@@ -66,7 +66,7 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
               cursor: "pointer",
             }}
             onClick={() => {
-              const data = {
+              const data:Comment = {
                 score: 0,
                 accepted: false,
                 author: {
@@ -93,13 +93,10 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
               .then((res:any) => {
                 console.log(res)
                 if (res.status === 200){
-                  return res.json()
+                  window.location.reload(true);
                 } else {
                   throw new Error(res)
                 }
-              })
-              .then((data:any) => {
-                console.log(data);
               })
               .catch((err:any) => {
                 console.log(err)
@@ -122,6 +119,7 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
       >
         {fetched !== null &&
           fetched.comments.map((comment, index) => {
+            console.log("mapping");
             return (
               <div key={index} style={{ marginTop: "20px" }}>
                 <CommentComp {...comment} />

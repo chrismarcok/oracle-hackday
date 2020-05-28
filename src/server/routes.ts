@@ -46,9 +46,13 @@ router.post('/api/user', (req:Request, res:Response, next:NextFunction) => {
 });
 
 router.get('/api/post', (req:Request, res:Response, next:NextFunction) => {
-    Post.find()
+    Post.find({})
         .then((posts:any) => {
-            res.send(posts)
+            console.log(posts);
+            const sorted = posts.sort((b,a) => {
+                return a.score > b.score ? 1 : -1
+            })
+            res.send(sorted)
         })
         .catch((err:any) => {
             console.log(err);
