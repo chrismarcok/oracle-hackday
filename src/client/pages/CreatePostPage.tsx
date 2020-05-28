@@ -3,6 +3,7 @@ import { Post } from "../data/post";
 
 import { Comp } from "../comps/Comp";
 import { CreatePostInput } from "../comps/CreatePostInput";
+import { Footer } from "../comps/ojet/Footer";
 
 interface CreatePostPageProps {}
 
@@ -137,6 +138,7 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

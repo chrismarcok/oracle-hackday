@@ -67,7 +67,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
           </div>
         </div>
       </div>
-      
+      <Footer/>
     </>
   );
 };
