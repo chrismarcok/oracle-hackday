@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Post } from "../../data/post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {formatDate} from "../../utils/utils"
+var markdown = require("markdown").markdown;
 
 interface PostCompProps {
   post: Post;
@@ -42,7 +43,7 @@ export const PostComp: React.FC<PostCompProps> = ({ post }) => {
           <p style={{ fontSize: "0.8rem" }}>
             Authored by {post.author.name} on {formatDate( post.date)}.
           </p>
-          <p className="mid-col-body">{post.body}</p>
+          <p className="mid-col-body" dangerouslySetInnerHTML={{__html: markdown.toHTML(post.body)}}></p>
 
             
         </div>
