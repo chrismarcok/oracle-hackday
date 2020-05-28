@@ -12,32 +12,9 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
   const body = "Something.";
   const tags = "e.g. AMS";
 
-<<<<<<< HEAD
-        const t_1:any= {
-            id: "input_title",
-            title: "Title!",
-            text: "Be general and hope someone can answer.",
-            place_holder: "e.g. Dogs or Cats?"
-        }
-        const t_2:any= {
-            id: "input_body",
-            title: "Body!",
-            text: "If you see something, say something.",
-            place_holder: "Something."
-        }
-        const t_3:any= {
-            id: "input_tag",
-            title: "Tags!",
-            text: "Drag this group of people into the water.",
-            place_holder: "e.g. AMS"
-        }
-                
-        return (<div> 
-=======
   const [titleVal, setTitleVal] = useState("");
   const [bodyVal, setBodyVal] = useState("");
   const [tagVal, setTagVal] = useState("");
->>>>>>> 9517f6038bfa9b2925b5e56e66d8cb079a1fd0c1
 
   return (
     <div>
