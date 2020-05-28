@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Post } from "../../data/post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {formatDate} from "../../utils/utils"
+import {Tags} from "../dashboard/Tags"
 var markdown = require("markdown").markdown;
 
 interface PostCompProps {
@@ -11,7 +12,7 @@ interface PostCompProps {
 
 export const PostComp: React.FC<PostCompProps> = ({ post, large }) => {
   const midColIcon: "check" | "question" = post.resolved ? "check" : "question";
-  console.log(large);
+  console.log(post.tags);
   const [score, setScore] = useState(post.score);
   const [upColor, setUpColor] = useState("black");
   const [downColor, setDownColor] = useState("black");
@@ -53,6 +54,11 @@ export const PostComp: React.FC<PostCompProps> = ({ post, large }) => {
                 position: "absolute",
                 bottom: "-30px",
             }}>{post.comments.length} Comment(s)</p>}
+        <div style={{fontSize: "0.8rem", position: "absolute", bottom: "-30px", right: "-120px"}}>
+            {post.tags.map((tag, index) => {return (<Tags tag={tag} key={index}/> )})}
+        </div>
+        
+        
       </div>
       <div className="right-col post-col">
         <div

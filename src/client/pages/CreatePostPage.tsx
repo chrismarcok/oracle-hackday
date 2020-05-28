@@ -33,7 +33,7 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
             text: "Drag this group of people into the water.",
             place_holder: "e.g. AMS"
         }
-        
+                
         return (<div> 
 
             <div className="cpost">         
