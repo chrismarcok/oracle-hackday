@@ -3,6 +3,7 @@ import { Post } from "../data/post";
 
 import { Comp } from "../comps/Comp";
 import { CreatePostInput } from "../comps/CreatePostInput";
+import { Footer } from "../comps/ojet/Footer";
 
 interface CreatePostPageProps {}
 
@@ -10,37 +11,16 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
   const title = "e.g. Dogs or Cats?";
   const body = "Something.";
   const tags = "e.g. AMS";
+  const repoId = "e.g. 19671:master";
 
-<<<<<<< HEAD
-        const t_1:any= {
-            id: "input_title",
-            title: "Title!",
-            text: "Be general and hope someone can answer.",
-            place_holder: "e.g. Dogs or Cats?"
-        }
-        const t_2:any= {
-            id: "input_body",
-            title: "Body!",
-            text: "If you see something, say something.",
-            place_holder: "Something."
-        }
-        const t_3:any= {
-            id: "input_tag",
-            title: "Tags!",
-            text: "Drag this group of people into the water.",
-            place_holder: "e.g. AMS"
-        }
-                
-        return (<div> 
-=======
   const [titleVal, setTitleVal] = useState("");
   const [bodyVal, setBodyVal] = useState("");
   const [tagVal, setTagVal] = useState("");
->>>>>>> 9517f6038bfa9b2925b5e56e66d8cb079a1fd0c1
+  const [repoVal, setRepoVal] = useState("");
 
   return (
     <div>
-      <div className="cpost">
+      <div className="cpost" style={{height: "900px"}}>
         <div className="container">
           <div className="content">
             <div className="title">
@@ -77,6 +57,17 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                   setValue={setTagVal}
                   value={tagVal}
                 />
+                <CreatePostInput
+                  id={"input_repo"}
+                  title={"Repository!"}
+                  text={
+                    "If you have a relevant repository ID and branch for others to look at, enter it here."
+                  }
+                  place_holder={repoId}
+                  len={32}
+                  setValue={setRepoVal}
+                  value={repoVal}
+                />
                 <button
                   className="submit_btn"
                   onClick={() => {
@@ -90,7 +81,11 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                         comments: [],
                         resolved: false,
                         body: bodyVal,
-                        tags: (tagVal === "") ? [] : tagVal.split(" ")
+                        tags: (tagVal === "") ? [] : tagVal.split(" "),
+                        repo: {
+                          repo_id: repoVal.split(":")[0],
+                          branch:repoVal.split(":")[1],
+                        }
                     };
                     // console.log(data)
                     fetch("/api/post", {
@@ -137,6 +132,7 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

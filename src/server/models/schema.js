@@ -1,6 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const RepoSchema = new Schema({
+    repo_id: {
+        type: Number,
+        required: true
+    },
+    branch: {
+        type: String,
+        required: true
+    }
+})
+
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -67,9 +78,13 @@ const PostSchema = new Schema({
     tags:{
         type: [String],
         default: []
+    },
+    repo: {
+        type: RepoSchema,
+        required: false
     }
-
 })
+
 
 mongoose.model("comments", CommentSchema);
 mongoose.model("users", UserSchema);

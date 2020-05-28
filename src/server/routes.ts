@@ -4,7 +4,7 @@ type Router = express.Router;
 type Request = express.Request;
 type Response = express.Response;
 type NextFunction = express.NextFunction;
-
+require('dotenv').config()
 const router:Router = express.Router();
 
 require("./models/schema");
@@ -96,6 +96,7 @@ router.post('/api/post', (req:Request, res:Response, next:NextFunction) => {
         comments:req.body.comments,
         resolved:req.body.resolved,
         tags: req.body.tags,
+        repo: req.body.repo
     });
 
     newPost.save()
@@ -108,5 +109,13 @@ router.post('/api/post', (req:Request, res:Response, next:NextFunction) => {
         console.log(err);
     });
 });
+
+router.get("/token", (req:Request, res:Response, next:NextFunction) => {
+    if (process.env.TOKEN) {
+        res.send({token: process.env.TOKEN, error: false});    
+    } else {
+        res.send({token: "INVALID", error: true});
+    }
+})
 
 export default router;

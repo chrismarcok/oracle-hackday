@@ -6,7 +6,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({}) => {
         return (<>
-            <footer>
+            <footer >
                 <div style={{paddingTop: "10px"}}>
                     <span>About Oracle</span>
                     <span>Contact Us</span>

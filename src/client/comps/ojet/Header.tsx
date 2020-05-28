@@ -14,12 +14,12 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           <div className="orcl-logo"/><span style={{
               fontSize: "2rem",
               color: "#666"
-          }}>Oracle Stack Overflow</span>
+          }}>Ask</span>
 
           <span className="hdr-email" style={{
               fontWeight: "bold",
               float: "right"
-          }}>john.hancock@oracle.com</span>
+          }}>me@oracle.com</span>
         </div>
         <div className="bottom-bar">
           <ul>
