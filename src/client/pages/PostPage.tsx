@@ -1,19 +1,23 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import { CommentComp } from '../comps/Comment'
-import {postProps} from "../comps/Comment";
-
 import {comments} from "../data/dummydata/comments"
+import {useParams} from "react-router-dom";
+import {posts} from "../data/dummydata/posts"
+import {PostComp} from "../comps/dashboard/Post";
+
 
 interface PostPageProps {
 
 }
 
 export const PostPage: React.FC<PostPageProps> = ({}) => {
+        let {postID} = useParams()
+
         return (
-        <Container>
-            <Row style={{minHeight:"400px", border: "black", outlineStyle: "solid",  backgroundColor: "gray"}} >
-                Post Will Go Here
+        <Container style={{paddingTop:"50px"}}>
+            <Row >
+               <PostComp post={posts[0]}/>
             </Row>
             <Row style={{minHeight:"auto", width: "90%", backgroundColor: "white", marginTop: "20px",  height: "100vh", display:"block"}}>
             {

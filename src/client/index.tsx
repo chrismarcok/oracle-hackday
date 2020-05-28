@@ -78,6 +78,15 @@ myLibrary.add(
 );
 
 render(
+<<<<<<< HEAD
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/" component={DashboardPage} />
+      <Route exact path="/post/:postID" component={PostPage} />
+      <Route component={NoMatch} />
+    </Switch>
+  </BrowserRouter>,
+=======
   <>
     <Header />
     <BrowserRouter>
@@ -89,5 +98,6 @@ render(
     </BrowserRouter>
     <Footer/>
   </>,
+>>>>>>> 597e8291a79787b6cfcee9f6cf79ddf32be9234f
   document.getElementById("root")
 );
