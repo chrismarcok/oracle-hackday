@@ -24,7 +24,7 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
         <div className="container">
           <div className="content">
             <div className="title">
-              <div className="headline">Create Your Post</div>
+              <div className="headline">Ask Your Question</div>
             </div>
             <div className="mygrid">
               <div className="editbar">

@@ -23,8 +23,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         </div>
         <div className="bottom-bar">
           <ul>
-            <a href="/"><li>Dashboard</li></a>
-            <a href="/createpost"><li>Create Post</li></a>
+            <a href="/"><li><FontAwesomeIcon icon="coffee" style={{marginRight: "5px"}}/>Dashboard</li></a>
+            <a href="/createpost"><li><FontAwesomeIcon icon="question-circle" style={{marginRight: "5px"}}/>Ask a Question</li></a>
 
           </ul>
         </div>

@@ -10,6 +10,12 @@ export interface Post {
     project?: string;
     tags?: string[];
     date: number;
+    repo?: Repo;
+}
+
+export interface Repo{
+    repo_id: number;
+    branch: string;
 }
 
 export interface Comment{
