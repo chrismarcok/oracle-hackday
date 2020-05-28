@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Post } from "../../data/post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {formatDate} from "../../utils/utils"
 
 interface PostCompProps {
   post: Post;
@@ -14,6 +15,7 @@ export const PostComp: React.FC<PostCompProps> = ({ post }) => {
   const [downColor, setDownColor] = useState("black");
 
   return (
+    
     <div className="postcomp-outermost">
       <div className="left-col post-col">
         <div className="left-col-inner">
@@ -34,11 +36,11 @@ export const PostComp: React.FC<PostCompProps> = ({ post }) => {
         <div className="mid-col-inner">
           <FontAwesomeIcon icon={midColIcon} size="2x" />
           <h1 className="inline" style={{ paddingLeft: "20px" }}>
-            {post.title}
+            <a href={`/post/${post._id}`}>{post.title}</a>
           </h1>
 
           <p style={{ fontSize: "0.8rem" }}>
-            Authored by {post.author} on INSERT DATE HERE.
+            Authored by {post.author.name} on {formatDate( post.date)}.
           </p>
           <p className="mid-col-body">{post.body}</p>
 

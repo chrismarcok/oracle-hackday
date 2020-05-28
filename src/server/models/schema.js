@@ -29,6 +29,10 @@ const CommentSchema = new Schema({
         type: Boolean,
         default: false
     },
+    date: {
+        type: Number,
+        default: 1590678085000
+    }
 })
 
 const PostSchema = new Schema({
@@ -55,6 +59,10 @@ const PostSchema = new Schema({
     resolved: {
         type: Boolean,
         required: true
+    },
+    date: {
+        type: Number,
+        default: 1590678085000
     }
 
 })

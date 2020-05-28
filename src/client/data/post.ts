@@ -1,7 +1,7 @@
 export interface Post {
-    id: number;
+    _id: string;
     title: string;
-    author: string;
+    author: User;
     authorAvatar: string;
     score: number;
     body: string;
@@ -9,12 +9,20 @@ export interface Post {
     resolved: boolean;
     project?: string;
     tags?: string[];
+    date: number;
 }
 
 export interface Comment{
-    id: number;
-    author: string;
+    _id: string;
+    author: User;
     authorAvatar: string;
     score: number;
     body: string;
+    date: number;
+}
+
+export interface User{
+    _id: string;
+    name: string;
+    avatar: string;
 }

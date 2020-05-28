@@ -7,6 +7,13 @@ $imported-font: "Poppins", sans-serif;
 
 a{
   text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: #333;
+  text-emphasis: none;
+  text-decoration: none;
 }
 
 * {
