@@ -52,7 +52,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
                   return (
                     post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                     post.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                    searchQuery.split(" ").some(val => post.tags.includes(val)))
+                    searchQuery.toLowerCase().split(" ").some(val => post.tags.map(t => {
+                      return t.toLowerCase()
+                    }).includes(val)))
 
                 }
                   ).map((post, index) => {
