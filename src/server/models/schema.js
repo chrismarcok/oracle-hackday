@@ -63,6 +63,10 @@ const PostSchema = new Schema({
     date: {
         type: Number,
         default: 1590678085000
+    },
+    tags:{
+        type: [String],
+        default: []
     }
 
 })

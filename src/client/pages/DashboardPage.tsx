@@ -35,6 +35,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
   };
 
 
+
   return (
     <>
       <div className="dashboard">
@@ -49,7 +50,11 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
               {
                 fetched.filter( post => {
                   console.log(searchQuery)
-                  return post.title.toLowerCase().includes(searchQuery.toLowerCase()) || post.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+                  return (
+                    post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                    post.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    searchQuery.split(" ").some(val => post.tags.includes(val)))
+
                 }
                   ).map((post, index) => {
                     return (
