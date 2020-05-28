@@ -14,6 +14,7 @@ interface Commit {
   author: string;
   message: string;
   date: string;
+  email: string;
 }
 
 interface RepoInfo {
@@ -70,14 +71,17 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
       })
       .then((values: any[]) => {
         let username;
+        let email;
         values.forEach((v: any) => {
           if (v.config.url.includes("branches")) {
             setRepoCommit({
               author: v.data.commit.author_name,
               date: v.data.commit.committed_date,
               message: v.data.commit.message,
+              email: v.data.commit.author_email
             });
             username = v.data.commit.author_name;
+            email = v.data.commit.author_email;
           } else {
             setRepoInfo({
               description: v.data.description,
@@ -88,10 +92,11 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
         });
 
         return axios.get(
-          `https://orahub.oci.oraclecorp.com/api/v4/users?username=${username}`
+          `https://orahub.oci.oraclecorp.com/api/v4/users?search=${email}&private_token=${token}`
         );
       })
       .then((res: any) => {
+        console.log(res);
         setCommitAvatar(res.data[0].avatar_url)
       })
       .catch((err: any) => {
