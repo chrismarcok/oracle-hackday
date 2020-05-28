@@ -56,7 +56,7 @@ export const PostComp: React.FC<PostCompProps> = ({ post }) => {
       <div className="right-col post-col">
         <div
           className="post-avatar"
-          style={{ backgroundImage: `url(${post.authorAvatar})` }}
+          style={{ backgroundImage: `url(${post.author.avatar})` }}
         ></div>
       </div>
     </div>

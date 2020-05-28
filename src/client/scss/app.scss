@@ -90,6 +90,12 @@ p {
 
     .mid-col-body {
       font-size: 1rem;
+      * {
+        display: block;
+      }
+       code {
+        white-space: pre-wrap;
+       }
     }
   }
 
