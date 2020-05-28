@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {PostComp} from "../comps/dashboard/Post";
+import { PostComp } from "../comps/dashboard/Post";
+import { Footer } from "../comps/ojet/Footer";
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Post} from "../data/post"
+
 
 interface DashboardPageProps {}
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
 
-  const [fetched, setFetched] = useState([]);
+  const [fetched, setFetched] = useState<Post[]>([]);
+  const [searchQuery, setsearchQuery] = useState("");
+
 
   useEffect(() => {
     fetch("/api/post")
@@ -15,7 +21,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
       } else {
         throw new Error("error");
       }
-    }).then((data:any[]) => {
+    }).then((data:Post[]) => {
       console.log(data);
       setFetched(data);
     }).catch((err:any) => {
@@ -23,14 +29,33 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
     })
   }, [])
 
+  let searchOnChange = function(e) { 
+    setsearchQuery(`${e.target.value}`)   
+  };
+
+
 
   return (
     <>
       <div className="dashboard">
         <div className="dashboard-outermost">
           <div className="dashboard-container">
+
+
+            <div>
+              <Input type="text" name="search" id="search" placeholder="search some stuff" onChange={searchOnChange}/>
+            </div>
+
               {
-                fetched.map((post, index) => {
+                fetched.filter( post => {
+                  console.log(searchQuery)
+                  return (
+                    post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                    post.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    searchQuery.split(" ").some(val => post.tags.includes(val)))
+
+                }
+                  ).map((post, index) => {
                     return (
                     <PostComp 
                         post={post} 

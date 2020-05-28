@@ -91,6 +91,7 @@ router.post('/api/post', (req:Request, res:Response, next:NextFunction) => {
         body:req.body.body,
         comments:req.body.comments,
         resolved:req.body.resolved,
+        tags: req.body.tags
     });
 
     newPost.save()
