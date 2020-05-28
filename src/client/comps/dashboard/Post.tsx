@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Post } from "../../data/post";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -9,13 +9,25 @@ interface PostCompProps {
 export const PostComp: React.FC<PostCompProps> = ({ post }) => {
   const midColIcon: "check" | "question" = post.resolved ? "check" : "question";
 
+  const [score, setScore] = useState(post.score);
+  const [upColor, setUpColor] = useState("black");
+  const [downColor, setDownColor] = useState("black");
+
   return (
     <div className="postcomp-outermost">
       <div className="left-col post-col">
         <div className="left-col-inner">
-          <FontAwesomeIcon icon="caret-up" size="2x" />
-          <div>{post.score}</div>
-          <FontAwesomeIcon icon="caret-down" size="2x" />
+          <FontAwesomeIcon icon="caret-up" size="2x" color={upColor} onClick={() => {
+            setScore(post.score + 1);
+            setUpColor("#f80000");
+            setDownColor("black")
+          }}/>
+          <div>{score}</div>
+          <FontAwesomeIcon icon="caret-down" size="2x" color={downColor} onClick={() => {
+            setScore(post.score - 1);
+            setUpColor("black");
+            setDownColor("#f80000")
+          }}/>
         </div>
       </div>
       <div className="mid-col post-col">
