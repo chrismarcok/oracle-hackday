@@ -49,7 +49,7 @@ router.get('/api/post', (req:Request, res:Response, next:NextFunction) => {
     Post.find({})
         .then((posts:any) => {
             console.log(posts);
-            const sorted = posts.sort((b,a) => {
+            const sorted = posts.sort((b:{score:number},a:{score:number}) => {
                 return a.score > b.score ? 1 : -1
             })
             res.send(sorted)
@@ -95,13 +95,13 @@ router.post('/api/post', (req:Request, res:Response, next:NextFunction) => {
         body:req.body.body,
         comments:req.body.comments,
         resolved:req.body.resolved,
-        tags: req.body.tags
+        tags: req.body.tags,
     });
 
     newPost.save()
     .then((post:any) => {
         console.log(`Post: ${post.title} has been created.`);
-        res.sendStatus(200);
+        res.status(200).send(post);
         
     })
     .catch((err:any) => {
