@@ -9,7 +9,8 @@ interface CreatePostInputProps {
 }
 
 export const CreatePostInput: React.FC<CreatePostInputProps> = ({len, id, title, text, place_holder}) => {
-        return ( <div>
+        return ( 
+        <div>
             <strong> {title} </strong>
             <p> {text} </p>
             {id.includes("body") ? <textarea id={id} placeholder={place_holder}/> : <input type="text" id={id} placeholder={place_holder} />}

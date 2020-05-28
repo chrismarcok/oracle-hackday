@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import {Post} from "../data/post"
 
 import { Comp } from '../comps/Comp'
 import { CreatePostInput } from '../comps/CreatePostInput'
@@ -8,6 +9,12 @@ interface CreatePostPageProps {
 }
 
 export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
+        
+        const [title, setTitle] = useState("e.g. Dogs or Cats?")
+        const [body, setBody] = useState("Something.")
+        const [tags, setTags] = useState("e.g. AMS")
+
+
         const t_1:any= {
             id: "input_title",
             title: "Title!",
@@ -39,10 +46,10 @@ export const CreatePostPage: React.FC<CreatePostPageProps> = ({}) => {
                         </div>
                         <div className="mygrid">
                             <div className="editbar">
-                                <CreatePostInput {...t_1}/>
-                                <CreatePostInput {...t_2}/>
-                                <CreatePostInput {...t_3}/>
-                                <button className="submit_btn"> WAKANDA Forever! </button>
+                                <CreatePostInput id={"input_title"} title={"Title!"} text={"Be general and hope someone can answer."} place_holder={title} len={32}/>
+                                <CreatePostInput  id={"input_body"} title= {"Body!"} text= {"If you see something, say something."} place_holder= {body} len={32}/>
+                                <CreatePostInput id= {"input_tag"} title={"Tags!"} text={"Drag this group of people into the water."} place_holder={tags} len={32}/>
+                                <button className="submit_btn" onClick={() => {console.log("dsas")}}> WAKANDA Forever! </button>
                             </div>
                         </div>
                         <div className="step_block">
