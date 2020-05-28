@@ -19,6 +19,7 @@ export interface Comment{
     score: number;
     body: string;
     date: number;
+    accepted: boolean;
 }
 
 export interface User{

@@ -6,18 +6,19 @@ var markdown = require("markdown").markdown;
 
 interface PostCompProps {
   post: Post;
+  large?: boolean;
 }
 
-export const PostComp: React.FC<PostCompProps> = ({ post }) => {
+export const PostComp: React.FC<PostCompProps> = ({ post, large }) => {
   const midColIcon: "check" | "question" = post.resolved ? "check" : "question";
-
+  console.log(large);
   const [score, setScore] = useState(post.score);
   const [upColor, setUpColor] = useState("black");
   const [downColor, setDownColor] = useState("black");
 
   return (
     
-    <div className="postcomp-outermost">
+    <div className="postcomp-outermost" style={{height: large ? "fit-content" : "250px"}}>
       <div className="left-col post-col">
         <div className="left-col-inner">
           <FontAwesomeIcon icon="caret-up" size="2x" color={upColor} onClick={() => {
@@ -47,11 +48,11 @@ export const PostComp: React.FC<PostCompProps> = ({ post }) => {
 
             
         </div>
-        <p style={{
+        {!large && <p style={{
                 fontSize: "0.8rem",
                 position: "absolute",
                 bottom: "-30px",
-            }}>{post.comments.length} Comment(s)</p>
+            }}>{post.comments.length} Comment(s)</p>}
       </div>
       <div className="right-col post-col">
         <div

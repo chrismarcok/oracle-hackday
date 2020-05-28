@@ -57,8 +57,7 @@ router.get('/api/post', (req:Request, res:Response, next:NextFunction) => {
 });
 
 router.get('/api/post/:postId', (req:Request, res:Response, next:NextFunction) => {
-    let id = req.params.postId
-    console.log(id)
+    const id = req.params.postId
     Post.findById(id)
         .then((posts:any) => {
             res.send(posts)

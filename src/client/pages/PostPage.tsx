@@ -35,9 +35,9 @@ export const PostPage: React.FC<PostPageProps> = ({}) => {
         return (
         <Container style={{paddingTop:"50px"}}>
             <Row >
-               {fetched !== null && <PostComp post={fetched}/>}
+               {fetched !== null && <PostComp post={fetched} large/>}
             </Row>
-            <Row style={{minHeight:"auto", width: "90%", backgroundColor: "white", marginTop: "20px",  height: "100vh", display:"block"}}>
+            <Row style={{minHeight:"auto", backgroundColor: "white", marginTop: "20px",  height: "100vh", display:"block"}}>
             {
                 fetched !== null &&
                 fetched.comments.map((comment, index) => {
