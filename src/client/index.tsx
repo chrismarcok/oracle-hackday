@@ -41,6 +41,8 @@ import {
   faCaretUp,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
+import { Header } from "./comps/ojet/Header";
+import { Footer } from "./comps/ojet/Footer";
 
 const myLibrary: any = library;
 myLibrary.add(
@@ -72,10 +74,11 @@ myLibrary.add(
   faQuestion,
   faEnvelope,
   faCaretUp,
-  faCaretDown,
+  faCaretDown
 );
 
 render(
+<<<<<<< HEAD
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={DashboardPage} />
@@ -83,5 +86,18 @@ render(
       <Route component={NoMatch} />
     </Switch>
   </BrowserRouter>,
+=======
+  <>
+    <Header />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={DashboardPage} />
+        <Route exact path="/post" component={PostPage} />
+        <Route component={NoMatch} />
+      </Switch>
+    </BrowserRouter>
+    <Footer/>
+  </>,
+>>>>>>> 597e8291a79787b6cfcee9f6cf79ddf32be9234f
   document.getElementById("root")
 );

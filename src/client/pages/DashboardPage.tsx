@@ -1,6 +1,7 @@
 import React from "react";
 import {posts} from "../data/dummydata/posts"
 import {PostComp} from "../comps/dashboard/Post";
+import { Footer } from "../comps/ojet/Footer";
 
 interface DashboardPageProps {}
 
@@ -23,6 +24,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({}) => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };
