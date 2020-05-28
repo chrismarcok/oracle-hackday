@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { NoMatch } from "./NoMatch";
 import {DashboardPage} from "./pages/DashboardPage";
 import { PostPage } from "./pages/PostPage";
+import { CreatePostPage } from "./pages/CreatePostPage";
 
 import "./scss/app";
 
@@ -84,6 +85,7 @@ render(
       <Switch>
         <Route exact path="/" component={DashboardPage} />
         <Route exact path="/post/:postID" component={PostPage} />
+        <Route exact path="/createpost" component={CreatePostPage} />
         <Route component={NoMatch} />
       </Switch>
     </BrowserRouter>
