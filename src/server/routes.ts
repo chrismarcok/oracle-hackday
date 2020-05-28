@@ -28,7 +28,7 @@ router.get('/api/user', (req:Request, res:Response, next:NextFunction) => {
 });
 
 router.post('/api/user', (req:Request, res:Response, next:NextFunction) => {
-    console.log(req.body)
+    //console.log(req.body)
     const newUser = new User({
         name: req.body.name,
         avatar: req.body.avatar
@@ -48,7 +48,7 @@ router.post('/api/user', (req:Request, res:Response, next:NextFunction) => {
 router.get('/api/post', (req:Request, res:Response, next:NextFunction) => {
     Post.find({})
         .then((posts:any) => {
-            console.log(posts);
+            // console.log(posts);
             const sorted = posts.sort((b:{score:number},a:{score:number}) => {
                 return a.score > b.score ? 1 : -1
             })
@@ -74,8 +74,8 @@ router.get('/api/post/:postId', (req:Request, res:Response, next:NextFunction) =
 
 router.post('/api/post/:postId', (req:Request, res:Response, next:NextFunction) => {
     const id = req.params.postId
-    console.log("body");
-    console.log(req.body)
+    // console.log("body");
+    // console.log(req.body)
     Post.findOneAndUpdate({'_id': mongoose.Types.ObjectId(id)},
     {$push: {comments: req.body}})
         .then((posts:any) => {
