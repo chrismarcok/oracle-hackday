@@ -2,4 +2,3 @@ node_modules/
 dist/
 public/js/app.js
 .env
-src/server/config/
